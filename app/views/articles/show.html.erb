@@ -1,0 +1,24 @@
+<html>
+<center>
+<p><center>
+  <strong>Title:</strong>
+  <%= @article.title %>
+  </center>
+</p>
+ 
+<p><center>
+  <strong>Text:</strong>
+  <%= @article.text %>
+  </center>
+</p>
+
+ 
+<p><center>
+  <strong>Author:</strong>
+  <%= @article.author %>
+  </center>
+</p>
+
+<%= link_to 'Show Table', articles_path(@article) %>
+</center>
+</html>

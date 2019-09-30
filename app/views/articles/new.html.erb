@@ -1,0 +1,25 @@
+<center><h1>New Article</h1></center>
+<%= form_with scope: :article,url: articles_path, local: true do |form| %>
+  <p><center>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+    </center>
+  </p>
+ 
+  <p><center>
+    <%= form.label :text %><br>
+    <%= form.text_area :text %>
+    </center>
+  </p>
+
+  <p><center>
+    <%= form.label :author %><br>
+    <%= form.text_field :author %>
+    </center>
+  </p>
+
+  <p><center>
+    <%= form.submit %>
+    </center>
+  </p>
+<% end %>
