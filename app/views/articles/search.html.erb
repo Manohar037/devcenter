@@ -1,0 +1,25 @@
+<center>
+	<h1>Search results</h1>
+	<table border="2" cellpadding="10">
+		<tr>
+			<td><strong>Title</td>
+			<td><strong>Text</strong></td>
+			<td><strong>Author</strong></td>
+		</tr>
+<% @articles.each do |article| %>
+    <tr>
+      <td><%= article.title %></td> 
+      <td><%= article.text %></td>
+      <td><%= article.author %></td>
+      <td><%= link_to 'Show', article_path(article) %></td>
+      <td><%= link_to 'Edit', edit_article_path(article) %></td>
+      <td><%= link_to 'Destroy', article_path(article),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+  </table>
+  <br>
+  <%= link_to 'Back',articles_path %>
+  
+</center>

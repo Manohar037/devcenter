@@ -1,5 +1,24 @@
 <center><h1>New Article</h1></center>
 <%= form_with scope: :article,url: articles_path, local: true do |form| %>
+
+<% if @article.errors.any? %>
+    <div id="error_explanation">
+      <center>
+      <h2>
+        <%= pluralize(@article.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      
+      
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      
+    
+      </center>
+    </div>
+  <% end %>
+
   <p><center>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
@@ -22,4 +41,6 @@
     <%= form.submit %>
     </center>
   </p>
+
+  <center><%= link_to 'Back', articles_path %></center>
 <% end %>

@@ -1,24 +1,29 @@
 <html>
 <center>
-<p><center>
-  <strong>Title:</strong>
-  <%= @article.title %>
-  </center>
-</p>
+<table border="2" cellpadding="10">
+  <tr>
+  	<td><strong>Title:</strong></td>
+	<td><%= @article.title %></td>
+</tr>
  
-<p><center>
-  <strong>Text:</strong>
-  <%= @article.text %>
-  </center>
-</p>
+ 
+<tr>
+  <td><strong>Text:</strong></td>
+  <td><%= @article.text %></td>
+</tr>
 
  
-<p><center>
-  <strong>Author:</strong>
-  <%= @article.author %>
-  </center>
-</p>
+<tr>
+  <td><strong>Author:</strong></td>
+  <td><%= @article.author %></td>
+</tr>
 
-<%= link_to 'Show Table', articles_path(@article) %>
+</table>
+<br>
+<%= link_to 'Edit', edit_article_path(@article) %>
+<br>
+<br>
+<%= link_to 'Display Table', articles_path(@article) %>
+
 </center>
 </html>
