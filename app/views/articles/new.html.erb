@@ -1,4 +1,10 @@
-<center><h1>New Article</h1></center>
+<style type="text/css">
+  body
+  {background-image: url("https://images.all-free-download.com/images/graphicthumb/47_hd_picture_of_the_japanese_style_color_background_170001.jpg");
+  }
+</style>
+<body>
+  <center><h1>New Article</h1></center>
 <%= form_with scope: :article,url: articles_path, local: true do |form| %>
 
 <% if @article.errors.any? %>
@@ -42,5 +48,5 @@
     </center>
   </p>
 
-  <center><%= link_to 'Back', articles_path %></center>
+  <center><%= link_to 'Back', articles_path %></center></body>
 <% end %>

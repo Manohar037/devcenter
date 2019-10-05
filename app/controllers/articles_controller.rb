@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def create
+    
   		#render plain: params[:article].inspect
 		#@article = Article.new(params[:article])
 		@article = Article.new(article_params)
@@ -55,6 +56,6 @@ class ArticlesController < ApplicationController
  
 	private
   		def article_params
-    		params.require(:article).permit(:title, :text, :author)
+    		params.require(:article).permit(:title, :text, :author, :text_chars_count)
   		end
 end
