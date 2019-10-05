@@ -1,42 +1,52 @@
- <center><h1>Edit article</h1>
- 
+<style type="text/css">
+  body
+  {background-image: url("https://images.all-free-download.com/images/graphicthumb/47_hd_picture_of_the_japanese_style_color_background_170001.jpg");
+  }
+</style>
+<body>
+  <center><h1><font size="20">New Article</font></h1></center>
 <%= form_with(model: @article, local: true) do |form| %>
 
-  <% if @article.errors.any? %>
+<% if @article.errors.any? %>
     <div id="error_explanation">
+      <center>
       <h2>
         <%= pluralize(@article.errors.count, "error") %> prohibited
         this article from being saved:
       </h2>
       
+      
         <% @article.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       
+    
+      </center>
     </div>
   <% end %>
- 
-  <p>
+
+  <p><center><font size="6">
     <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <%= form.text_area :title,:size => "30x2" %>
+    </font></center>
   </p>
  
-  <p>
+  <p><center><font size="6">
     <%= form.label :text %><br>
-    <%= form.text_area :text %>
+    <%= form.text_area :text, :size => "30x10" %>
+    </font></center>
   </p>
 
-   <p>
+  <p><center><font size="6">
     <%= form.label :author %><br>
-    <%= form.text_area :author %>
+    <%= form.text_area :author,:size => "30x2"  %>
+   </font> </center>
   </p>
 
- 
-  <p>
-    <%= form.submit %>
+  <p><center><font size="10">
+    <%= form.submit :style => 'padding-top: 14px'%>
+   </font> </center>
   </p>
- 
+
+  <h2><center><%= link_to 'Back', articles_path %></center></h2></body>
 <% end %>
- 
-<%= link_to 'Back', articles_path %>
-</center>

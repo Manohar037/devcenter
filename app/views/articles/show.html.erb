@@ -1,6 +1,14 @@
 <html>
+<style type="text/css">
+  body
+  {background-image: url("https://images.all-free-download.com/images/graphicthumb/47_hd_picture_of_the_japanese_style_color_background_170001.jpg");
+  }
+  table
+   { font-size: 24px; }
+</style>
+<body>
 <center>
-<table border="2" cellpadding="10">
+<table cellpadding="15" border="5" font-size="20">
   <tr>
   	<td><strong>Title:</strong></td>
 	<td><%= @article.title %></td>
@@ -20,10 +28,9 @@
 
 </table>
 <br>
-<%= link_to 'Edit', edit_article_path(@article) %>
-<br>
-<br>
-<%= link_to 'Display Table', articles_path(@article) %>
+<h2><%= link_to 'Edit', edit_article_path(@article) %></h2>
+<h2><%= link_to 'Display Table', articles_path(@article) %></h2>
 
 </center>
+</body>
 </html>

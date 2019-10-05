@@ -4,7 +4,7 @@
   }
 </style>
 <body>
-  <center><h1>New Article</h1></center>
+  <center><h1><font size="20">New Article</font></h1></center>
 <%= form_with scope: :article,url: articles_path, local: true do |form| %>
 
 <% if @article.errors.any? %>
@@ -25,28 +25,28 @@
     </div>
   <% end %>
 
-  <p><center>
+  <p><center><font size="6">
     <%= form.label :title %><br>
-    <%= form.text_field :title %>
-    </center>
+    <%= form.text_area :title,:size => "30x2" %>
+    </font></center>
   </p>
  
-  <p><center>
+  <p><center><font size="6">
     <%= form.label :text %><br>
-    <%= form.text_area :text %>
-    </center>
+    <%= form.text_area :text, :size => "30x10" %>
+    </font></center>
   </p>
 
-  <p><center>
+  <p><center><font size="6">
     <%= form.label :author %><br>
-    <%= form.text_field :author %>
-    </center>
+    <%= form.text_area :author,:size => "30x2"  %>
+   </font> </center>
   </p>
 
-  <p><center>
-    <%= form.submit %>
-    </center>
+  <p><center><font size="10">
+    <%= form.submit :style => 'padding-top: 14px'%>
+   </font> </center>
   </p>
 
-  <center><%= link_to 'Back', articles_path %></center></body>
+  <h2><center><%= link_to 'Back', articles_path %></center></h2></body>
 <% end %>
