@@ -2,10 +2,14 @@ class ArticlesController < ApplicationController
 
 	def index
     		@articles = Article.all
+        #render inline: "<% @articles.each do |article| %>
+          #<%= article.title %> <% end %>"
   	end
 
   	def show
    		 @article = Article.find(params[:id])
+       #redirect_to @article
+       #render 'new'
   	end
 	
 	def new
@@ -14,6 +18,7 @@ class ArticlesController < ApplicationController
 	
 	def edit
  	    @article = Article.find(params[:id])
+
 	end
 
 	def create
@@ -37,7 +42,7 @@ class ArticlesController < ApplicationController
   		@article = Article.find(params[:id])
  
   		if @article.update(article_params)
-    		redirect_to @article
+    		redirect_to articles_path
   		else
     		render 'edit'
   		end
@@ -56,6 +61,6 @@ class ArticlesController < ApplicationController
  
 	private
   		def article_params
-    		params.require(:article).permit(:title, :text, :author, :text_chars_count)
+    		params.require(:article).permit(:title, :text, :text_chars_count)
   		end
 end
