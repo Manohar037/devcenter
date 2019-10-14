@@ -1,0 +1,27 @@
+<html>
+<style type="text/css">
+  body
+  {background-image: url("https://images.pexels.com/photos/46274/pexels-photo-46274.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+  background-repeat: no-repeat;
+  background-size: cover;
+  }
+  table
+   { font-size: 24px; }
+</style>
+<body>
+<center>
+<table cellpadding="15" border="5" font-size="20">
+  <tr>
+  	<td><strong>Author:</strong></td>
+	<td><%= @author.author_name %></td>
+</tr>
+ 
+
+</table>
+<br>
+<h2><%= link_to 'Edit', edit_author_path(@author) %></h2>
+<h2><%= link_to 'Display Author Table', authors_path(@author) %></h2>
+
+</center>
+</body>
+</html>

@@ -2,6 +2,8 @@ class ArticlesController < ApplicationController
 
 	def index
     		@articles = Article.all
+        #@article=Article.find(params[:id])
+        #@author=Article.find(params[:author_id])
         #render inline: "<% @articles.each do |article| %>
           #<%= article.title %> <% end %>"
   	end
@@ -14,6 +16,7 @@ class ArticlesController < ApplicationController
 	
 	def new
 		@article=Article.new
+    @author=Author.new
 	end
 	
 	def edit
@@ -26,7 +29,6 @@ class ArticlesController < ApplicationController
   		#render plain: params[:article].inspect
 		#@article = Article.new(params[:article])
 		@article = Article.new(article_params)
-
  
   		if @article.save
   			redirect_to @article
@@ -53,14 +55,16 @@ class ArticlesController < ApplicationController
   end
 
 	def destroy
-    	@article = Article.find(params[:id])
-   	    @article.destroy
+    	#@article = Article.find([params[:id],params[:author_id]])
+      @article = Article.find([params[:id,:author_id]])
+   	  @article.destroy
  
-    	redirect_to articles_path
+    	redirect_to author_articles_path
   	end
  
 	private
   		def article_params
     		params.require(:article).permit(:title, :text, :text_chars_count)
   		end
+
 end

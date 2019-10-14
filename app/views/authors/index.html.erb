@@ -1,0 +1,42 @@
+<html>
+<style type="text/css">
+  body
+  {
+   background-image: url("https://images.pexels.com/photos/46274/pexels-photo-46274.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+  background-repeat: no-repeat;
+  background-size: cover;
+  }
+  table
+   { font-size: 24px; }
+</style>
+<body>
+<h1><center><font size="20">Listing Authors</font></center></h1>
+ <center>
+  <form action="/search">
+    <font size="5">Search <input type="text" name="authorname" placeholder="Enter the AuthorName">
+    <input type="submit" value="Go"></font>
+  </form>
+  <br>
+<table cellpadding="15" border="5" font-size="20">
+  <tr>
+    <th><strong>Author</strong></th>
+    
+  </tr>
+  <% @authors.each do |author| %>
+    <tr>
+      <td><%= author.author_name %></td>
+      <td><%= link_to 'Show', author_path(author) %></td>
+      <td><%= link_to 'Edit', edit_author_path(author) %></td>
+      <td><%= link_to 'Delete', author_path(author),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  
+</table><br>
+<h2><%= link_to 'Create New Author', new_author_path() %></h2>
+ <h2><%= link_to 'Go to Articles Table', author_articles_path(@authors) %></h2>
+
+ </center>
+</body>
+</html>

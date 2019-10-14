@@ -29,16 +29,16 @@
       <td><%= article.title %></td> 
       <td><%= article.text %></td>
       <td><%= article.text_chars_count %></td>
-      <td><%= link_to 'Show', article_path(article) %></td>
-      <td><%= link_to 'Edit', edit_article_path(article) %></td>
-      <td><%= link_to 'Delete', article_path(article),
+       <td><%= link_to 'Delete', author_articles_path(article),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>
+      
   <% end %>
   
 </table><br>
- <h2><%= link_to 'Create New Article', new_article_path(@article) %></h2>
+ <h2><%= link_to 'Create New Article', new_author_article_path(@articles) %></h2>
+ <h2><%= link_to 'Go to Authors Table', authors_path %></h2>
 
  </center>
 </body>

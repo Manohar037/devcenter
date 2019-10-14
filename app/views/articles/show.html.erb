@@ -22,11 +22,22 @@
   <td><%= @article.text %></td>
 </tr>
 
+<h2>Add an author:</h2>
+<%= form_with(model: [ @article, @article.authors.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :author_name %><br>
+    <%= form.text_field :author_name %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
 
 </table>
 <br>
-<h2><%= link_to 'Edit', edit_article_path(@article) %></h2>
-<h2><%= link_to 'Display Table', articles_path(@article) %></h2>
+<h2><%= link_to 'Edit', edit_author_article_path(@article) %></h2>
+<h2><%= link_to 'Display Table', author_articles_path(@article) %></h2>
 
 </center>
 </body>

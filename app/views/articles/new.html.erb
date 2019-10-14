@@ -7,7 +7,7 @@
 </style>
 <body>
   <center><h1><font size="20">New Article</font></h1></center>
-<%= form_with scope: :article,url: articles_path, local: true do |form| %>
+<%= form_with scope: :article,url: author_articles_path, local: true do |form| %>
 
 <% if @article.errors.any? %>
     <div id="error_explanation">
@@ -39,10 +39,16 @@
     </font></center>
   </p>
 
+  <p><center><font size="6">
+    <%= form.label :author_name %><br>
+    <%= form.text_area :author_name, :size => "30x10" %>
+    </font></center>
+  </p>
+
   <p><center><font size="10">
     <%= form.submit :style => 'padding-top: 14px'%>
    </font> </center>
   </p>
 
-  <h2><center><%= link_to 'Back', articles_path %></center></h2></body>
+  <h2><center><%= link_to 'Back', author_articles_path %></center></h2></body>
 <% end %>

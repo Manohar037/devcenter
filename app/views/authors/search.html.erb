@@ -1,0 +1,43 @@
+<style type="text/css">
+  body
+  {background-image: url("https://images.pexels.com/photos/46274/pexels-photo-46274.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+  background-repeat: no-repeat;
+  background-size: cover;
+  }
+</style>
+<body>
+  <center><h1><font size="20">New Author</font></h1></center>
+<%= form_with(model: @author, local: true) do |form| %>
+
+<% if @author.errors.any? %>
+    <div id="error_explanation">
+      <center>
+      <h2>
+        <%= pluralize(@author.errors.count, "error") %> prohibited
+        this author from being saved:
+      </h2>
+      
+      
+        <% @author.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      
+    
+      </center>
+    </div>
+  <% end %>
+
+  <p><center><font size="6">
+    <%= form.label :author_name %><br>
+    <%= form.text_area :author_name,:size => "30x2" %>
+    </font></center>
+  </p>
+ 
+
+  <p><center><font size="10">
+    <%= form.submit :style => 'padding-top: 14px'%>
+   </font> </center>
+  </p>
+
+  <h2><center><%= link_to 'Back', authors_path %></center></h2></body>
+<% end %>
