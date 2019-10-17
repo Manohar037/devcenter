@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
  	    @article = Article.find(params[:id])
 
 	end
-
+=begin
 	def create
     
   		#render plain: params[:article].inspect
@@ -40,6 +40,15 @@ class ArticlesController < ApplicationController
   		else
   			render 'new'
   		end
+  end
+=end
+  def create
+    @article = Article.create(article_params)
+    if @article.save
+        redirect_to author_articles_path
+      else
+        render 'new'
+      end
   end
 
 
@@ -68,7 +77,7 @@ class ArticlesController < ApplicationController
  
 	private
   		def article_params
-    		params.require(:article).permit(:title, :text, :text_chars_count)
+    		params.require(:article).permit(:title, :text, :aut_name, :text_chars_count)
   		end
 
       def author_params

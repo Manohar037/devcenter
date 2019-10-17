@@ -40,7 +40,8 @@
   </p>
 
   <p><center><font size="6">
-    <%= form.collection_select :aut_name, Author.all, :author_name, :author_name %>
+    <%= form.label :author_name %><br>
+    <%= form.collection_select(:author_id, Author.all, :id, :author_name) %>
   </font></center>
 </p>
 
