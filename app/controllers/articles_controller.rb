@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
 
   	def show
    		 @article = Article.find(params[:id])
+       @author = Author.find(params[:author_id])
        #redirect_to @article
        #render 'new'
   	end
@@ -28,35 +29,38 @@ class ArticlesController < ApplicationController
     
   		#render plain: params[:article].inspect
 		#@article = Article.new(params[:article])
+
+    #@author = Author.find(params[:article][:author][:author_id])
+    #@author.articles.create(article_params)
+
 		@article = Article.new(article_params)
- 
-  		if @article.save
+    @author = Author.new(author_params)
+  		if @article.save && @author.save
   			redirect_to @article
   		else
   			render 'new'
   		end
+  end
 
-	end
-	
-	
+
 
   	def update
   		@article = Article.find(params[:id])
  
   		if @article.update(article_params)
-    		redirect_to articles_path
+    		redirect_to author_articles_path
   		else
     		render 'edit'
   		end
 	end
 
-  def search
+  def search2
     @articles = Article.where("title LIKE ?","%"+params[:titlename]+"%")
   end
 
 	def destroy
     	#@article = Article.find([params[:id],params[:author_id]])
-      @article = Article.find([params[:id,:author_id]])
+      @article = Article.find(params[:id])
    	  @article.destroy
  
     	redirect_to author_articles_path
@@ -67,4 +71,7 @@ class ArticlesController < ApplicationController
     		params.require(:article).permit(:title, :text, :text_chars_count)
   		end
 
+      def author_params
+        params.require(:author).permit(:author_name)
+      end
 end

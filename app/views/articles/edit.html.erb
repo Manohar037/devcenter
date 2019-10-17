@@ -7,7 +7,8 @@
 </style>
 <body>
   <center><h1><font size="20">New Article</font></h1></center>
-<%= form_with(model: @article, local: true) do |form| %>
+
+<%= form_with(model: @article,url: author_articles_path, local: true) do |f| %>
 
 <% if @article.errors.any? %>
     <div id="error_explanation">
@@ -28,14 +29,20 @@
   <% end %>
 
   <p><center><font size="6">
-    <%= form.label :title %><br>
-    <%= form.text_area :title,:size => "30x2" %>
+    <%= f.label :title %><br>
+    <%= f.text_area :title,:size => "30x2" %>
     </font></center>
   </p>
  
   <p><center><font size="6">
-    <%= form.label :text %><br>
-    <%= form.text_area :text, :size => "30x10" %>
+    <%= f.label :text %><br>
+    <%= f.text_area :text, :size => "30x10" %>
+    </font></center>
+  </p>
+<%= form_with(model: @article.author, local: true) do |form| %>
+   <p><center><font size="6">
+    <%= form.label :author_name %><br>
+    <%= form.text_area :author_name, :size => "30x10" %>
     </font></center>
   </p>
 
@@ -45,4 +52,5 @@
   </p>
 
   <h2><center><%= link_to 'Back', author_articles_path %></center></h2></body>
+<% end %>
 <% end %>

@@ -5,5 +5,6 @@ resources:authors do
 resources:articles
 end
 root 'welcome#index'
-get 'search', to: "articles#search"
+get 'search1', to: "authors#search1"
+get 'search2', to: "articles#search2"
 end

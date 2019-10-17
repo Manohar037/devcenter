@@ -15,6 +15,13 @@
   	<td><strong>Author:</strong></td>
 	<td><%= @author.author_name %></td>
 </tr>
+
+<tr>
+    <td><strong>Articles:</strong></td>
+    <% @articles.each do |article|%>
+  <td><%= article.title %></td>
+  <%end%>
+</tr>
  
 
 </table>

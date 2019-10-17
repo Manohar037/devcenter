@@ -5,6 +5,7 @@ class AuthorsController < ApplicationController
 
 	def show
    		 @author = Author.find(params[:id])
+   		 @articles = @author.articles
    	end
 
 
@@ -39,6 +40,13 @@ class AuthorsController < ApplicationController
     		render 'edit'
   		end
 	end
+
+	def search1
+    @authors = Author.where("author_name LIKE ?","%"+params[:authorname]+"%")
+    #@author = Author.find(params[:id])
+    #@articles = @author.articles
+    
+  end
 
 	def destroy
     	@author_name = Author.find(params[:id])
