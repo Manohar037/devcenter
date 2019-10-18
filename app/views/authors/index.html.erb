@@ -12,6 +12,13 @@
 <body>
 <h1><center><font size="20">Listing Authors</font></center></h1>
  <center>
+<% if author_signed_in? %>
+<h2><%= link_to current_author.email, edit_author_registration_path %></h2>
+<h2><%= link_to 'Logout', destroy_author_session_path, method: :delete %></h2>
+<% else %>
+  <h2 ><%= link_to 'Sign Up', new_author_registration_path %></h2>
+ <h2 ><%= link_to 'Login', new_author_session_path %></h2>
+<% end %>
   <form action="/search1">
     <font size="5">Search <input type="text" name="authorname" placeholder="Enter the AuthorName">
     <input type="submit" value="Go"></font>
