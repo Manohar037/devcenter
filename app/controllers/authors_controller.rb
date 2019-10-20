@@ -40,7 +40,8 @@ class AuthorsController < ApplicationController
   end
 
   def search1
-    @authors = Author.where('author_name LIKE ?', '%' + params[:authorname] + '%')
+    @authors = Author.where('author_name LIKE ?',
+                            '%' + params[:authorname] + '%')
     # @author = Author.find(params[:id])
     # @articles = @author.articles
   end

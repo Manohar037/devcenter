@@ -1,16 +1,27 @@
-<h2>Forgot your password?</h2>
+<style type="text/css">
+  body
+  {background-image: url("https://images.pexels.com/photos/46274/pexels-photo-46274.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+  background-repeat: no-repeat;
+  background-size: cover;
+  }
+</style>
+<body>
+<center>
+<h1>Forgot your password?</h1>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
+  <div class="field"><font size="5">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-
+<br>
   <div class="actions">
     <%= f.submit "Send me reset password instructions" %>
   </div>
 <% end %>
-
+<br>
 <%= render "devise/shared/links" %>
+</center>
+</body>
