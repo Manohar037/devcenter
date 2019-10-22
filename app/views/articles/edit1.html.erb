@@ -3,7 +3,8 @@
 </style>
 <body>
   <center><h1><font size="20">New Article</font></h1></center>
-<%= form_for @article,url: author_articles_path, local: true do |form| %>
+
+<%= form_with(model: @article,url: author_articles_path, local: true) do |f| %>
 
 <% if @article.errors.any? %>
     <div id="error_explanation">
@@ -24,22 +25,22 @@
   <% end %>
 
   <p><center><font size="6">
-    <%= form.label :title %><br>
-    <%= form.text_area :title,:size => "30x2" %>
+    <%= f.label :title %><br>
+    <%= f.text_field :title,:size => "30x2" %>
     </font></center>
   </p>
  
-  <p><center><font size="6">
-    <%= form.label :text %><br>
-    <%= form.text_area :text, :size => "30x10" %>
+  <p><center><font>
+    <%= f.label :text %><br>
+    <%= f.text_area :text, :size => "30x10" %>
     </font></center>
   </p>
-
-  <p><center><font size="6">
+<%= form_with(model: @article.author, local: true) do |form| %>
+   <p><center><font size="6">
     <%= form.label :author_name %><br>
-    <%= form.collection_select(:author_id, Author.all, :id, :author_name) %>
-  </font></center>
-</p>
+    <%= form.text_field :author_name, :size => "30x10" %>
+    </font></center>
+  </p>
 
   <p><center><font size="10">
     <%= form.submit :style => 'padding-top: 14px'%>
@@ -48,6 +49,4 @@
 
   <h2><center><%= link_to 'Back', author_articles_path %></center></h2></body>
 <% end %>
-
-  
-
+<% end %>

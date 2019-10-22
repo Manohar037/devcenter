@@ -13,7 +13,7 @@
     right: 0;
     padding: 0;
     .shadow: ;
-    background-color: black !important;
+    background-color: #000 !important;
 }
 .nav ul {
   list-style: none;
@@ -68,8 +68,8 @@ font-family: 'Oswald', sans-serif;
 }
 
 .sidebar {
-  height: 100%;
-  width: 160px;
+  height: 88.5%;
+  width: 250px;
   position: fixed;
   z-index: 1;
   top: 48px;
@@ -80,7 +80,6 @@ font-family: 'Oswald', sans-serif;
   padding-top: 16px;
 }
 
-/* Style sidebar links */
 .sidebar a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
@@ -119,8 +118,8 @@ font-family: 'Oswald', sans-serif;
     <ul class="nav nav-pills">
         <li role="presentation"><a href="http://localhost:3000">Home</a></li>
             <li role="presentation"><a href="#">About</a></li>
-        <li role="presentation"><a href="http://localhost:3000/authors/sign_up">Sign Up</a></li>
-        <li role ="presentation"><a href="http://localhost:3000/authors/sign_in">Login</a></li>
+        <li role="presentation"><%= link_to 'Logout', destroy_author_session_path, method: :delete %></li>
+        <li role ="presentation"><a href="http://localhost:3000/authors/edit"><%= current_author.email %></a></li>
       </ul>
   </div>
  </nav>
@@ -130,10 +129,12 @@ font-family: 'Oswald', sans-serif;
 
 <!-- The sidebar -->
 <div class="sidebar">
-  <a href="#home"><i class="fa fa-fw fa-home"></i> Home</a>
-  <a href="#services"><i class="fa fa-fw fa-book"></i> My Blog</a>
-  <a href="#clients"><i class="fa fa-fw fa-book"></i> All Blogs</a>
+  
+  <%= link_to 'My Blog', author_path(current_author) %>
+  <%= link_to 'All Blog', authors_path %>
+
 </div>
+
 <div class="footer">
   
 </div>

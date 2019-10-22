@@ -1,9 +1,5 @@
 <style type="text/css">
-  body
-  {background-image: url("https://images.pexels.com/photos/46274/pexels-photo-46274.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
-  background-repeat: no-repeat;
-  background-size: cover;
-  }
+  
 </style>
 <body>
   <center><font size="20">New Author</font></center>
@@ -27,9 +23,9 @@
     </div>
   <% end %>
 
-  <p><center><font>
+  <p><center><font size="6">
     <%= form.label :author_name %><br>
-    <%= form.text_area :author_name %>
+    <%= form.text_field :author_name %>
     </font></center>
   </p>
  
@@ -39,5 +35,5 @@
    </font> </center>
   </p>
 
-  <center><%= link_to 'Back', authors_path %></center></body>
+  <center><h2><%= link_to 'Back', authors_path %></h2></center></body>
 <% end %>

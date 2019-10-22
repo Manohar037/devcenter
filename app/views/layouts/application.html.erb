@@ -10,7 +10,15 @@
   </head>
 
   <body>
-    <%= render partial: "shared/navbar" %>
+    <% if author_signed_in? %>
+    <%= render partial: "shared/navbar2" %>
+    <% else %>
+     <%= render partial: "shared/navbar" %>
+     <% end %>
+    <div style="white-space: pre"> 
+    
+   
+  </div>
     <%= yield %>
   </body>
 </html>
