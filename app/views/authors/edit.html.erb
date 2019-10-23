@@ -2,7 +2,7 @@
   
 </style>
 <body>
-  <center><font size="20">New Author</font></center>
+  <center><font size="15">New Author</font></center><br>
 <%= form_with(model: @author, local: true) do |form| %>
 
 <% if @author.errors.any? %>
@@ -23,7 +23,7 @@
     </div>
   <% end %>
 
-  <p><center><font size="6">
+  <p><center><font size="4">
     <%= form.label :author_name %><br>
     <%= form.text_field :author_name %>
     </font></center>
@@ -31,9 +31,9 @@
  
 
   <p><center><font>
-    <%= form.submit :style => 'padding-top: 14px'%>
+    <%= form.submit :style => 'padding-top: 10px'%>
    </font> </center>
   </p>
-
-  <center><h2><%= link_to 'Back', authors_path %></h2></center></body>
+  <br>
+  <center><h3><%= link_to 'Back', authors_path %></h3></center></body>
 <% end %>

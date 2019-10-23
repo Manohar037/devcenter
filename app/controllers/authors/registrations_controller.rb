@@ -6,17 +6,17 @@ class Authors::RegistrationsController < Devise::RegistrationsController
 
    # GET /resource/sign_up
    def new
-    super do |resource|
-      BackgroundWorker.trigger(resource)
-    end
+    super 
+      #BackgroundWorker.trigger(resource)
+   # end
       @author = Author.new
    end
 
   # POST /resource
    def create
-     super
-      @author = Author.new(author_params)
-
+    super
+    @author = Author.new(author_params)
+    
     if @author.save
       redirect_to authors_path
    # else
@@ -56,7 +56,7 @@ class Authors::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
    def configure_sign_up_params
-     devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
+     p devise_parameter_sanitizer.permit(:sign_up, keys: [:author_name])
    end
 
   # If you have extra params to permit, append them to the sanitizer.

@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
     # render 'new'
   end
 
+  
   def new
     @article = Article.new
     @author = Author.new

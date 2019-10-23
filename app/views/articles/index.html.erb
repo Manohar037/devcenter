@@ -2,13 +2,18 @@
 <style type="text/css">
   
   table
-   { font-size: 24px; }
+   { font-size: 20px;
+     margin-left: 250px; }
+   /*td,th
+   { width: 5%; }
+
 </style>
 <body>
 <h1><center><font size="20">Listing articles</font></center></h1>
+<br>
  <center>
   <form action="/search2">
-    <font size="5">Search <input type="text" name="titlename" placeholder="Enter the Title">
+    <font size="3">Search <input type="text" name="titlename" placeholder="Enter the Title">
     <input type="submit" value="Go"></font>
   </form>
   <br>
@@ -17,16 +22,18 @@
     <th><strong>Title</strong></th>
     <th><strong>Text</strong></th>
     <th><strong>Total Chars in Text</strong></th>
-    
+    <td></td>
+    <td></td>
+    <td></td>
   </tr>
   <% @articles.each do |article| %>
     <tr>
       <td><%= article.title %></td> 
-      <td><%= article.text %></td>
+      <td width="500";><%= article.text %></td>
       <td><%= article.text_chars_count %></td>
-      <td><%= link_to 'Show', author_article_path(article.author,article) %></td>
-      <td><%= link_to 'Edit', edit_author_article_path(article.author,article) %></td>
-       <td><%= link_to 'Delete', author_article_path(article.author,article),
+      <td width="100";><%= link_to 'Show', author_article_path(article.author,article) %></td>
+      <td width="100";><%= link_to 'Edit', edit_author_article_path(article.author,article) %></td>
+       <td width="100";><%= link_to 'Delete', author_article_path(article.author,article),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>
@@ -34,8 +41,8 @@
   <% end %>
   
 </table><br>
- <h2><%= link_to 'Create New Article', new_author_article_path(@articles) %></h2>
- <h2><%= link_to 'Go to Authors Table', authors_path %></h2>
+ <h3><%= link_to 'Create New Article', new_author_article_path(@articles) %></h3>
+ <h3><%= link_to 'Go to Authors Table', authors_path %></h3>
 
  </center>
 </body>

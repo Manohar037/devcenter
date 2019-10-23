@@ -2,14 +2,14 @@
 <style type="text/css">
   
   table
-   { font-size: 24px; }
+   { font-size: 20px; }
 </style>
 <body>
 <center>
-<table cellpadding="15" border="5" font-size="20">
+<table cellpadding="15" border="2" font-size="20">
   <tr>
-  	<td><strong>Title:</strong></td>
-	<td><%= @article.title %></td>
+  	<td width="300";><strong>Title:</strong></td>
+	<td width="300";><%= @article.title %></td>
 </tr>
  
  
@@ -25,8 +25,8 @@
 
 </table>
 <br>
-<h2><%= link_to 'Edit', edit_author_article_path(@article) %></h2>
-<h2><%= link_to 'Display Table', author_articles_path(@article) %></h2>
+<h3><%= link_to 'Edit', edit_author_article_path(@article) %></h3>
+<h3><%= link_to 'Display Table', author_articles_path(@article) %></h3>
 
 </center>
 </body>

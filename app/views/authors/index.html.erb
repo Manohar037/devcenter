@@ -1,40 +1,39 @@
 <html>
 <style type="text/css">
-
+  /*body
+  {
+    background-color: lightgray;
+  }*/
   table
-   { font-size: 24px; }
+   { font-size: 20px;
+     
+   }
+   td
+   { width: 30%; }
 </style>
 <body>
-<h1><center><font size="20">Listing Authors</font></center></h1>
+<h1><center><font size="15">Listing Authors</font></center></h1>
+<br>
  <center>
 
   <form action="/search1">
-    <font size="5">Search <input type="text" name="authorname" placeholder="Enter the AuthorName">
+    <font size="3">Search <input type="text" name="authorname" placeholder="Enter the AuthorName">
     <input type="submit" value="Go"></font>
   </form>
   <br>
-<table cellpadding="10" border="2">
+<table cellpadding= "10" border="2">
   <tr>
-    <th><strong>Author</strong></th>
-    
+    <th><strong>Authors</strong></th>
+    <td></td>
   </tr>
   <% @authors.each do |author| %>
     <tr>
       <td><%= author.author_name %></td>
-      <td><%= link_to 'Show', author_path(author) %></td>
-      <td><%= link_to 'Edit', edit_author_path(author) %></td>
-      <td><%= link_to 'Delete', author_path(author),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'show', showeach_path(author) %></td>
+      
     </tr>
   <% end %>
-  
-</table><br>
-<h2><%= link_to 'Create New Author', new_author_path() %></h2>
- <h2><%= link_to 'Go to Articles Table', author_articles_path(@authors) %></h2>
- <% current_author.articles.each do |a| %>
- <%= a.title %>
- <% end %>
+
 
  </center>
 </body>
